@@ -1,0 +1,218 @@
+/* Inicio do arquivo global.css 
+
+    Estilos Globais que podem ser reutilizados em todo o projeto.
+
+    Esses estilos incluem reset de CSS, variáveis CSS, estilos para botões, containers, textos e formulários.
+
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+@font-face {
+  font-family: 'MarvinRound';
+  src: url('../fonts/Marvin-Round.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #ff9800;
+  --secondary-color: #ffb347; /* Laranja Pastel */
+  --tertiary-color: #fff4c7;
+  --quartenary-color: #08415c; /* Azul Escuro - Insticucional */
+  --quintenary-color: #b45309;
+  --font-color: #585858;
+  --background-color: #f5f5f5;
+  --white-color: #ffffff;
+  --font-title: 'MarvinRound', sans-serif;
+  --font-text: "Nunito", sans-serif;
+  
+  /* Borda para testar containers */
+  --border: 1px solid #c0c0c0;
+
+}
+
+html,
+body {
+  font-family: var(--font-text);
+  background-color: var(--background-color);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-padding-top: 4.5rem;
+  padding-top: 60px;
+}
+
+/* Containers CSS */
+.container {
+  width: 90%;
+  max-width: 1800px;
+  margin: 0 auto;
+  /* border: var(--border); */
+}
+
+.container-fluid {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /* border: var(--border); */
+}
+
+.container-fluid h2,
+.subtitle {
+  font-size: calc(.9em + 1vw);
+  font-weight: 500;
+  color: var(--font-color);
+  margin-bottom: 10px;
+}
+
+.container-row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  /* border: var(--border); */
+}
+
+.container-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* border: var(--border); */
+}
+
+#about,
+#programs,
+#adoption,
+#donation,
+#needs,
+#volunteer,
+#transparency,
+#impact,
+#footer {
+ margin-top: 6rem;
+}
+
+
+/* Buttons CSS */
+.btn {
+  color: #fff;
+  padding: 15px 25px;
+  border: none;
+  gap: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: calc(1em + 0.01vw);
+  transition: all 150ms ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-color);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: black;
+}
+.btn-secondary:hover {
+  background-color: rgb(240, 240, 240);
+}
+
+/* Text Elements CSS */
+.title {
+  font-size: calc(1.8em + 1.5vw);
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-family: var(--font-title);
+  color: #222;
+}
+
+.text {
+  font-size: calc(1em + 0.1vw);
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  color: var(--font-color);
+}
+
+.tag {
+  background-color: var(--background-color);
+  color: var(--font-color);
+  padding: 3px 10px;
+  border-radius: 5px;
+  font-size: 0.8em;
+  font-weight: 600;
+}
+
+.text-info {
+  max-width: 600px;
+  margin: 10px 0 40px;
+}
+
+/* Form Elements CSS */
+.input {
+  padding: 10px;
+  border: var(--border);
+  border-radius: 5px;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Responsividade CSS */
+.desktop-only {
+  display: none !important;
+}
+
+.menu-burguer {
+  display: block !important;
+  cursor: pointer;
+  transition: background-color 150ms ease;
+}
+
+@media (min-width: 768px) {
+  .desktop-only {
+    display: block !important;
+  }
+
+  .nav {
+    display: flex !important;
+  }
+
+  .menu-burguer,
+  .sidebar {
+    display: none !important;
+  }
+
+  .container {
+    padding: 20px;
+  }
+}
+
+/* Fim do arquivo global.css */

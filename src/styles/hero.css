@@ -1,0 +1,93 @@
+/* Hero CSS 
+
+  Estilos para a seção hero inicial da página.
+
+*/
+
+#hero .container-row {
+  width: 100%;
+  margin-top: 2rem;
+}
+
+#hero .container-column:first-child,
+#about .container-column:first-child {
+  flex: 1;
+}
+
+.img {
+  max-width: 472px;
+  max-height: 712px;
+  width: calc(35vw + 100px);
+  align-self: end;
+  height: 100%;
+  border-radius: 15px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+}
+
+.qrcode {
+  width: 93px;
+  height: 93px;
+  align-self: center;
+  transition: all 250ms ease-in-out;
+  border-radius: 10px;
+  padding: 5px;
+  margin-bottom: 7px;
+  cursor: pointer;
+}
+
+.qrcode:hover {
+  transform: scale(1.05);
+  border: 1px solid lightgray;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
+
+}
+
+#hero .container-column small {
+  width: 100px;
+  text-align: center;
+  color: var(--font-color);
+}
+
+@media (max-width: 325px) {
+  .container-row.cta-container {
+    justify-content: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .container-row.cta-container {
+    justify-content: start;
+    gap: 30px;
+  }
+}
+
+.container-image {
+  display: block;
+  margin: auto;
+}
+.container-column.button-container {
+  gap: 15px;
+  margin-top: 20px;
+  max-width: 300px;
+}
+
+.hero-highlight {
+  color: var(--quintenary-color);
+  margin-bottom: 10px;
+  background-color: var(--tertiary-color);
+  border-radius: 10px;
+  width: fit-content;
+  padding: 5px 10px;
+}
+
+.title span {
+  color: var(--quintenary-color);
+}
+
+.text-icon {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--font-color);
+}

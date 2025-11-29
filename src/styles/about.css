@@ -1,0 +1,16 @@
+/* About CSS 
+
+  Estilos para a seção sobre da página.
+
+*/
+
+.about-data .container-column {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+}
+
+.about-data .container-column h3 {
+  font-size: calc(1em + 1vw);
+  color: var(--primary-color);
+}
