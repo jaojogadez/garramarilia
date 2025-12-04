@@ -50,6 +50,11 @@
   display: none;
 }
 
+.navbar .nav .nav-link:hover::before {
+  filter: drop-shadow(0 0 5px rgba(255, 165, 0, 0.5));
+  opacity: 1;
+}
+
 .navbar .nav .nav-link,
 .sidebar .sidebar-nav .sidebar-nav-link {
   text-decoration: none;
@@ -74,6 +79,8 @@
   transition: right 250ms ease;
   z-index: 1000;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .sidebar.active {
@@ -96,6 +103,35 @@
   display: flex;
   flex-direction: column;
   margin: 60px 0 40px;
+}
+
+.sidebar-list {
+  margin-top: auto;
+  margin-left: 15px;
+}
+
+.buttons-navbar {
+  display: none;
+  align-items: center;
+}
+
+.hover-nav-item {
+  padding-left: 23px;
+  position: relative;
+}
+
+.hover-nav-item::before {
+  content: url("../assets/icons/paw-icon.png");
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2em;
+  opacity: 0;
+}
+
+.hover-nav-item:hover::before {
+  opacity: 1;
 }
 
 /* Menu Burguer Button CSS */
@@ -135,6 +171,10 @@
   background-color: rgba(255, 255, 255, 0.99);
   transform: blur(5px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.dark .navbar.sticky-scrolled {
+  background-color: #262626fa;
 }
 
 .navbar.sticky-scrolled .logo img {
