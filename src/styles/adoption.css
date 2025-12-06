@@ -36,6 +36,9 @@
 
 .adoption-card-content {
   padding: 15px;
+  display: flex;
+  flex-direction: column; 
+  height: min-content;
 }
 
 .adoption-card-content h3 {
@@ -57,6 +60,7 @@
 }
 
 .adoption-card .button-group {
+  margin-top: auto;
   justify-content: space-between;
   gap: 10px;
 }
@@ -87,16 +91,6 @@
 
 .see-all-btn:hover {
   background-color: var(--hover-color) !important;
-}
-
-/* Oculta o quarto card e todos os cards seguintes */
-.adoption-cards-container .adoption-card:nth-child(n + 4) {
-  display: none;
-  animation: fadeIn 0.8s ease-out;
-}
-
-.adoption-cards-container.show-all .adoption-card {
-  display: block;
 }
 
 @keyframes fadeIn {

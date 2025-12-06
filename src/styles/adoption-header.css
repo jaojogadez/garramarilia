@@ -1,0 +1,69 @@
+/* Header CSS 
+
+  - CSS para os headers da página de adoção
+
+*/
+
+#header-adoption {
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 4rem;
+}
+
+.header-button {
+  display: flex !important;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+}
+
+.container-header .title {
+  font-size: calc(1.2em + 0.1vw);
+}
+
+.container-header .subtitle {
+  font-size: calc(0.9em + 0.1vw);
+}
+
+#all-animals {
+  margin-top: 2rem;
+}
+
+/* Form CSS  */
+#form-search-animal {
+  flex: 1;
+}
+
+.search-input-container {
+  position: relative;
+  width: 100%;
+}
+
+.search-input-animal {
+  width: 100%;
+  padding-left: 3rem;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: #777;
+  font-size: 20px;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .buttons-container-donation,
+  .donation-cards-container {
+    justify-content: center;
+  }
+  .container-donation {
+    flex-wrap: wrap !important;
+    justify-content: center;
+  }
+  .container-donation .container-column:first-child {
+    order: 1;
+    margin-top: 1rem;
+  }
+}
