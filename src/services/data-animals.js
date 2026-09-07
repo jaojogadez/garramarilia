@@ -361,6 +361,15 @@ const animais = [
     imagemSrc: "src/assets/animais/42 - Penélope - 12 anos.png",
     imagemAlt: "Cachorra Penélope",
   },  
+  {
+    classe: "cachorro",
+    nome: "Pantera",
+    tipo: "Fêmea",
+    idade: "11 anos",
+    descricao: "Uma Pantera de 11 anos que passeia como gata. Esperta, charmosa e com passos precisos, ela conquista a todos por onde passa. Carece de cuidados e carinho, pronta para ser a fiel companheira de quem a adotar.",
+    imagemSrc: "src/assets/animais/44 - Pantera.png",
+    imagemAlt: "Cachorra Pantera",
+  },  
 ];
 
 /**
