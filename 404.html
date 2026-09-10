@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Página Não Encontrada (404) | ONG GARRA Marília</title>
+    <meta
+      name="description"
+      content="Ops! Página não encontrada. Conheça nossos cães e gatos resgatados para adoção na ONG GARRA Marília."
+    />
+    <meta name="robots" content="noindex, follow" />
+    <link rel="shortcut icon" href="src/assets/logo-oficial-garra.jpg" type="image/x-icon" />
+    <link rel="stylesheet" href="src/styles/index.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <style>
+      .error-page-container {
+        min-height: 75vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 4rem 1.5rem;
+      }
+      .error-code {
+        font-size: clamp(5rem, 15vw, 9rem);
+        font-weight: 900;
+        color: var(--secondary-color);
+        line-height: 1;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+      .error-paw-icon {
+        font-size: clamp(4rem, 12vw, 7rem);
+        color: var(--primary-color);
+        animation: floatPaw 3s ease-in-out infinite;
+      }
+      @keyframes floatPaw {
+        0%, 100% { transform: translateY(0) rotate(0deg); }
+        50% { transform: translateY(-12px) rotate(8deg); }
+      }
+      .error-title {
+        font-size: clamp(1.6rem, 4vw, 2.4rem);
+        color: var(--title-color);
+        margin-bottom: 1rem;
+      }
+      .error-description {
+        font-size: 1.1rem;
+        color: var(--font-color);
+        max-width: 540px;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+      }
+      .error-actions {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar Start -->
+    <nav class="navbar sections-nav">
+      <div class="container">
+        <div class="nav-logo-container">
+          <a href="index.html" class="btn menu-burguer header-button" style="text-decoration: none" aria-label="Voltar para a página inicial">
+            <i class="material-symbols-outlined">arrow_back</i> Início
+          </a>
+          <a href="index.html" class="logo container-logo">
+            <img
+              src="src/assets/logotipo-garra-80x80-transparent.png"
+              alt="Logo Garra Marília"
+            />
+            <span>Garra</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Main Content Start -->
+    <main class="container error-page-container">
+      <div class="error-code">
+        <span>4</span>
+        <span class="material-symbols-outlined error-paw-icon">pets</span>
+        <span>4</span>
+      </div>
+      <h1 class="error-title">Ops! Essa página fugiu do abrigo 🐾</h1>
+      <p class="error-description">
+        O endereço que você tentou acessar não foi encontrado ou foi movido.
+        Mas fique tranquilo, nossos focinhos continuam precisando de carinho e de um lar!
+      </p>
+      <div class="error-actions">
+        <a href="index.html" class="btn btn-primary">
+          <span class="material-symbols-outlined">home</span>
+          Voltar para o Início
+        </a>
+        <a href="animais.html" class="btn btn-secondary">
+          <span class="material-symbols-outlined">favorite</span>
+          Ver Animais para Adoção
+        </a>
+      </div>
+    </main>
+    <!-- Main Content End -->
+
+    <!-- Footer Start -->
+    <footer class="container" id="footer">
+      <div class="footer-copyright-row">
+        <p class="text copyright-text">
+          © 2025 - 2026 GARRA - Grupo de Apoio e Resgate de Animais. CNPJ:
+          20.661.830/0001-77. Transparência e prestação de contas públicas.
+        </p>
+      </div>
+    </footer>
+    <!-- Footer End -->
+
+    <!-- Floating WhatsApp Button -->
+    <a
+      href="https://wa.me/5514998277874?text=Ol%C3%A1%21+Gostaria+de+saber+mais+sobre+o+trabalho+da+ONG+GARRA."
+      class="whatsapp-floating-btn"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Falar conosco no WhatsApp"
+    >
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+        alt="WhatsApp"
+      />
+    </a>
+
+    <script type="module" src="src/scripts/index.js"></script>
+  </body>
+</html>

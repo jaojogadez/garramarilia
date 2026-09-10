@@ -125,7 +125,11 @@ document.addEventListener("DOMContentLoaded", () => {
     navigator.clipboard
       .writeText(text)
       .then(() => {
-        alert("Copiado com sucesso: " + text);
+        if (window.showToast) {
+          window.showToast("Copiado para a área de transferência: " + text, "success");
+        } else {
+          alert("Copiado com sucesso: " + text);
+        }
       })
       .catch((err) => {
         console.error("Falha ao copiar:", err);
@@ -136,9 +140,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const data =
       "Banco do Brasil, Agência: 1234-5, Conta Corrente: 12345-6, CNPJ: 20.661.830/0001-77, Titular: ONG Instituto Garra";
     navigator.clipboard.writeText(data).then(() => {
-      alert(
-        "Dados Bancários copiados! Não se esqueça de enviar o comprovante via WhatsApp: (14) 99827-7874."
-      );
+      if (window.showToast) {
+        window.showToast("Dados bancários copiados! Envie o comprovante via WhatsApp: (14) 99827-7874", "success");
+      } else {
+        alert(
+          "Dados Bancários copiados! Não se esqueça de enviar o comprovante via WhatsApp: (14) 99827-7874."
+        );
+      }
     });
   };
 
@@ -155,12 +163,19 @@ document.addEventListener("DOMContentLoaded", () => {
             button.innerHTML = originalContent;
             button.classList.remove("copied");
           }, 2500);
+        }
+        if (window.showToast) {
+          window.showToast("Chave Pix copiada com sucesso: " + pixKey, "success");
         } else {
           alert("Chave Pix copiada com sucesso: " + pixKey);
         }
       })
       .catch(() => {
-        alert("Chave Pix: " + pixKey);
+        if (window.showToast) {
+          window.showToast("Chave Pix: " + pixKey, "info");
+        } else {
+          alert("Chave Pix: " + pixKey);
+        }
       });
   };
 });

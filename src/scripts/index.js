@@ -8,6 +8,36 @@ import '../libs/aos-animate.js';
 import '../libs/swiper.js';
 import '../libs/active-section.js';
 
+// Sistema Global de Notificações Toast
+window.showToast = function (message, type = 'success') {
+  let container = document.getElementById('toastContainer');
+  if (!container) {
+    container = document.createElement('div');
+    container.id = 'toastContainer';
+    container.className = 'toast-container';
+    document.body.appendChild(container);
+  }
+
+  const toast = document.createElement('div');
+  toast.className = `toast-message ${type}`;
+
+  const iconName = type === 'success' ? 'check_circle' : type === 'error' ? 'error' : 'info';
+  const iconColor = type === 'success' ? '#22c55e' : type === 'error' ? '#ef4444' : 'var(--secondary-color)';
+
+  toast.innerHTML = `
+    <span class="material-symbols-outlined" style="color: ${iconColor}; font-size: 22px;">${iconName}</span>
+    <span>${message}</span>
+  `;
+
+  container.appendChild(toast);
+
+  setTimeout(() => {
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateY(-10px)';
+    setTimeout(() => toast.remove(), 300);
+  }, 4000);
+};
+
 // Manipulação do Formulário de Voluntariado
 document.addEventListener('DOMContentLoaded', () => {
   const volunteerForm = document.querySelector('.volunteer-form');
@@ -46,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const whatsappUrl = `https://wa.me/5514998277874?text=${encodeURIComponent(msg)}`;
       window.open(whatsappUrl, '_blank');
       volunteerForm.reset();
-      alert('Obrigado pelo seu interesse em ser voluntário! Redirecionando para o WhatsApp oficial da ONG GARRA para concluir seu cadastro.');
+      window.showToast('Inscrição enviada! Redirecionando para o WhatsApp oficial.', 'success');
     });
   }
 
@@ -69,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
           console.error('Erro ao salvar assinante:', err);
         }
 
-        alert(`Obrigado por se inscrever! O e-mail "${emailVal}" foi cadastrado para receber novidades da ONG GARRA.`);
+        window.showToast(`Inscrição realizada com sucesso para "${emailVal}"!`, 'success');
         form.reset();
       }
     });

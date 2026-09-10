@@ -31,9 +31,11 @@ document
     this.reset();
 
     // Feedback visual
-    alert(
-      "Redirecionando para o WhatsApp! Sua mensagem será enviada diretamente para nossa equipe."
-    );
+    if (window.showToast) {
+      window.showToast("Redirecionando para o WhatsApp! Sua mensagem será enviada à nossa equipe.", "success");
+    } else {
+      alert("Redirecionando para o WhatsApp! Sua mensagem será enviada diretamente para nossa equipe.");
+    }
   });
 
 // Máscara de telefone
