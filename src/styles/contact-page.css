@@ -33,6 +33,15 @@
   border-radius: 50%;
 }
 
+.contact-item .social-icon {
+  width: 72px;
+  height: 72px;
+  padding: 18px;
+  border-radius: 50%;
+  background-color: var(--tertiary-color);
+  object-fit: contain;
+}
+
 .contact-item .btn {
   margin-left: auto;
   width: 100%;

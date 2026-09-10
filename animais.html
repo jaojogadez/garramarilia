@@ -14,7 +14,7 @@
     content="Conheça todos os cães e gatos resgatados pela ONG GARRA em Marília/SP disponíveis para adoção e apadrinhamento." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://garramarilia.vercel.app/animais.html" />
-  <meta property="og:image" content="src/assets/logo-oficial-garra.jpg" />
+  <meta property="og:image" content="https://garramarilia.vercel.app/src/assets/logo-oficial-garra.jpg" />
   <meta name="author" content="ONG GARRA" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://garramarilia.vercel.app/animais.html" />
@@ -83,7 +83,7 @@
         <a href="#all-animals" class="btn btn-secondary">Apadrinhar</a>
         <a href="#all-animals" class="btn btn-primary">Adotar</a>
       </div>
-      <button class="menu-burguer" data-aos="fade-left" data-aos-delay="800">
+      <button class="menu-burguer" aria-label="Abrir menu de navegação" data-aos="fade-left" data-aos-delay="800">
         <i id="menu-icon" class="material-symbols-outlined">menu</i>
       </button>
     </div>
@@ -96,17 +96,17 @@
         <img src="src/assets/logotipo-garra-80x80-transparent.png" alt="Logo Garra Marília" />
         <span>Garra</span>
       </a>
-      <button id="close-btn" class="menu-burguer">
+      <button id="close-btn" class="menu-burguer" aria-label="Fechar menu lateral">
         <i class="material-symbols-outlined">close</i>
       </button>
     </div>
     <ul class="sidebar-nav">
-      <li class="hover-nav-item accordion-header" id="accordionHeader">
+      <li class="hover-nav-item accordion-header" id="sidebarAccordionHeader">
         <p class="sidebar-nav-link">Página Institucional</p>
         <span class="accordion-icon">+</span>
       </li>
 
-      <div class="accordion-content" id="accordionContent">
+      <div class="accordion-content" id="sidebarAccordionContent">
         <li class="hover-nav-item">
           <a href="index.html#about" target="_self" class="sidebar-nav-link">Sobre</a>
         </li>
@@ -147,10 +147,10 @@
   <!--Sidebar End -->
   <!-- Header Start -->
   <header class="container section-page" id="header-adoption">
-    <div class="container-row vamooo">
-      <div class="container-column">
-        <p class="hero-highlight" data-aos="fade-up">
-          54 Animais esperando por um lar
+    <div class="container-row vamooo" style="align-items: flex-start; justify-content: space-between; gap: 30px;">
+      <div class="container-column" style="flex: 1; min-width: 280px;">
+        <p class="hero-highlight" data-aos="fade-up" id="pet-counter">
+          43 Animais esperando por um lar
         </p>
         <h1 class="title" data-aos="fade-up" data-aos-delay="100">
           Animais para Adoção
@@ -164,29 +164,38 @@
           <span class="material-symbols-outlined"> arrow_downward </span>
         </a>
       </div>
-      <!--<form class="container-column espaco-filtro" data-aos="fade-left" data-aos-delay="100" method="get"
-        id="form-search-animal">
+      <form class="container-column espaco-filtro" data-aos="fade-left" data-aos-delay="200" id="form-search-animal" style="flex: 1; min-width: 280px; max-width: 480px; background-color: var(--white-color); padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.06);">
+        <div class="search-input-container">
+          <span class="material-symbols-outlined search-icon">search</span>
+          <input
+            type="text"
+            id="busca-animal"
+            class="input search-input-animal"
+            placeholder="Buscar por nome do pet..."
+            aria-label="Buscar por nome do pet"
+          />
+        </div>
 
-          <div class="filtro-categorias">
-            <label>Animais</label>
-            <select id="animais">
-              <option>Todas as categorias</option>
-              <option>Cachorros</option>
-              <option>Gatos</option>
+        <div class="container-row" style="gap: 15px; margin-top: 15px; width: 100%;">
+          <div class="filtro-categorias" style="flex: 1; min-width: 120px;">
+            <label for="filtro-especie" style="font-size: 0.9rem; margin-bottom: 5px; color: var(--font-color);">Espécie</label>
+            <select id="filtro-especie" class="input" style="width: 100%; cursor: pointer;">
+              <option value="todos">Todas</option>
+              <option value="cachorro">Cachorro</option>
+              <option value="gato">Gato</option>
             </select>
           </div>
 
-          <div class="filtro-categorias">
-            <label>Sexo</label>
-            <select id="sexo">
-              <option>Todas as categorias</option>
-              <option>Macho</option>
-              <option>Femea</option>
+          <div class="filtro-categorias" style="flex: 1; min-width: 120px;">
+            <label for="filtro-sexo" style="font-size: 0.9rem; margin-bottom: 5px; color: var(--font-color);">Sexo</label>
+            <select id="filtro-sexo" class="input" style="width: 100%; cursor: pointer;">
+              <option value="todos">Todos</option>
+              <option value="macho">Macho</option>
+              <option value="femea">Fêmea</option>
             </select>
           </div>
-
-        </article>
-      </form>-->
+        </div>
+      </form>
     </div>
   </header>
   <!-- Header End -->
@@ -227,11 +236,11 @@
       <div class="container-column footer-nav-col">
         <h3 class="subtitle footer-section-title">Navegação</h3>
         <ul class="sidebar-nav footer-list">
-          <li class="hover-nav-item accordion-header" id="accordionHeader">
+          <li class="hover-nav-item accordion-header" id="footerAccordionHeader">
             <p class="sidebar-nav-link">Página Institucional</p>
             <span class="accordion-icon">+</span>
           </li>
-          <div class="accordion-content" id="accordionContent">
+          <div class="accordion-content" id="footerAccordionContent">
             <li class="hover-nav-item">
               <a href="index.html#about" target="_self" class="sidebar-nav-link">Sobre</a>
             </li>
