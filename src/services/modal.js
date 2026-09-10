@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById("genericModal");
+  if (!modal) return;
+  const modalHeader = modal.querySelector(".modal-header");
   const modalBody = modal.querySelector(".modal-body");
   const closeButtons = modal.querySelectorAll(".close-button, #closeModalBtn");
   const allButtons = document.querySelectorAll(".container-pag-buttons button");
@@ -57,14 +59,14 @@ document.addEventListener("DOMContentLoaded", () => {
                     <div><strong>Banco</strong> <span class="value">Banco do Brasil</span></div>
                     <div><strong>Agência</strong> <span class="value">1234-5</span></div>
                     <div><strong>Conta Corrente</strong> <span class="value">12345-6</span></div>
-                    <div><strong>CNPJ</strong> <span class="value">12.345.678/0001-90</span></div>
-                    <div><strong>Titular</strong> <span class="value">ONG Garra - Resgate de Animais</span></div>
+                    <div><strong>CNPJ</strong> <span class="value">20.661.830/0001-77</span></div>
+                    <div><strong>Titular</strong> <span class="value">ONG Instituto Garra</span></div>
                     <button class="btn btn-secondary" style="width: 100%;" onclick="copyBankData()">
                         <i class="fas fa-copy"></i> Copiar dados
                     </button>
                 </div>
                 <div class="toast">
-                    <p><span>Importante:</span> Após a transferência, envie o comprovante para nosso WhatsApp (11) 98765-4321 para receber seu certificado de doação.</p>
+                    <p><span>Importante:</span> Após a transferência, envie o comprovante para nosso WhatsApp (14) 99827-7874 para receber seu certificado de doação.</p>
                 </div>
             `,
     },
@@ -73,8 +75,8 @@ document.addEventListener("DOMContentLoaded", () => {
       body: `
                 <p class="text">Para doar com cartão de crédito, entre em contato conosco via WhatsApp:</p>
                 <div class="info-box">
-                    <p style="font-size: 1.8rem;">(11) 98765-4321</p>
-                    <button class="btn btn-secondary" style="width: 100%;" onclick="window.open('https://wa.me/5511987654321')">
+                    <p style="font-size: 1.8rem;">(14) 99827-7874</p>
+                    <button class="btn btn-secondary" style="width: 100%;" onclick="window.open('https://wa.me/5514998277874', '_blank')">
                         <i class="fab fa-whatsapp"></i> Abrir WhatsApp
                     </button>
                 </div>
@@ -89,7 +91,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const openModal = (type) => {
     const content = modalContent[type];
     if (content) {
-      modalBody.innerHTML = content.body;
+      if (modalHeader) modalHeader.innerHTML = content.title;
+      if (modalBody) modalBody.innerHTML = content.body;
       modal.style.display = "block";
     }
   };
@@ -122,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
     navigator.clipboard
       .writeText(text)
       .then(() => {
-        alert("Copiado: " + text);
+        alert("Copiado com sucesso: " + text);
       })
       .catch((err) => {
         console.error("Falha ao copiar:", err);
@@ -131,11 +134,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.copyBankData = () => {
     const data =
-      "Banco do Brasil, Agência: 1234-5, Conta Corrente: 12345-6, CNPJ: 12.345.678/0001-90, Titular: ONG Garra - Resgate de Animais";
+      "Banco do Brasil, Agência: 1234-5, Conta Corrente: 12345-6, CNPJ: 20.661.830/0001-77, Titular: ONG Instituto Garra";
     navigator.clipboard.writeText(data).then(() => {
       alert(
-        "Dados Bancários copiados! Não se esqueça de enviar o comprovante via WhatsApp."
+        "Dados Bancários copiados! Não se esqueça de enviar o comprovante via WhatsApp: (14) 99827-7874."
       );
     });
+  };
+
+  window.copyPixCode = (button) => {
+    const pixKey = "garra.marilia@gmail.com";
+    navigator.clipboard
+      .writeText(pixKey)
+      .then(() => {
+        if (button) {
+          const originalContent = button.innerHTML;
+          button.innerHTML = '<span class="material-symbols-outlined">done</span> Chave Pix Copiada!';
+          button.classList.add("copied");
+          setTimeout(() => {
+            button.innerHTML = originalContent;
+            button.classList.remove("copied");
+          }, 2500);
+        } else {
+          alert("Chave Pix copiada com sucesso: " + pixKey);
+        }
+      })
+      .catch(() => {
+        alert("Chave Pix: " + pixKey);
+      });
   };
 });

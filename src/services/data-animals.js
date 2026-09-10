@@ -47,6 +47,15 @@ const animais = [
     imagemAlt: "Animal Chris",
   },
   {
+    classe: "cachorro",
+    nome: "Penny",
+    tipo: "Fêmea",
+    idade: "+10 anos",
+    descricao: "Cachorrinha sênior muito dócil e carinhosa, busca um lar tranquilo e cheio de amor.",
+    imagemSrc: "src/assets/animais/6 - Penny - +10 anos.png",
+    imagemAlt: "Cachorra Penny",
+  },
+  {
     classe:"cachorro",
     nome: "Melissa",
     tipo: "Fêmea",
@@ -227,7 +236,7 @@ const animais = [
     imagemAlt: "Cachorro Neymar",
   },
   {
-    classe: "Gato",
+    classe: "gato",
     nome: "Getúlio",
     tipo: "Macho",
     idade: "1 ano",
@@ -236,7 +245,7 @@ const animais = [
     imagemAlt: "Animal Getúlio",
   },
   {
-    classe: "Cachorro",
+    classe: "cachorro",
     nome: "Piolho",
     tipo: "Macho",
     idade: "12 anos",
@@ -245,7 +254,7 @@ const animais = [
     imagemAlt: "Animal Piolho",
   },
   {
-    classe: "Cachorro",
+    classe: "cachorro",
     nome: "Risquinho",
     tipo: "Macho",
     idade: "12 anos",
@@ -266,7 +275,7 @@ const animais = [
     classe: "cachorro",
     nome: "Babinha",
     tipo: "Fêmea",
-    idade: "Cachorro",
+    idade: "Adulta",
     descricao: "Cachorrinha carinhosa e dengosa, esperando por um lar cheio de amor.",
     imagemSrc: "src/assets/animais/31-Babinha.png",
     imagemAlt: "Cachorra Babinha",
@@ -317,7 +326,7 @@ const animais = [
     imagemAlt: "Cachorro Maiki",
   },
   {
-    classe: "Cachorro",
+    classe: "cachorro",
     nome: "Retalho",
     tipo: "Macho",
     idade: "14 anos",
@@ -363,6 +372,15 @@ const animais = [
   },  
   {
     classe: "cachorro",
+    nome: "Zimba",
+    tipo: "Macho",
+    idade: "6 anos",
+    descricao: "Cachorro adulto forte, leal e brincalhão, companheiro perfeito para todas as horas.",
+    imagemSrc: "src/assets/animais/43 - Zimba - 6 anos.png",
+    imagemAlt: "Cachorro Zimba",
+  },
+  {
+    classe: "cachorro",
     nome: "Pantera",
     tipo: "Fêmea",
     idade: "5 anos",
@@ -379,9 +397,12 @@ const animais = [
  */
 
 function criarCardAnimal(animal) {
-  // Usamos Template Literals (crase `) para facilitar a escrita do HTML
+  const classeFormatada = animal.classe ? animal.classe.charAt(0).toUpperCase() + animal.classe.slice(1) : "";
+  const apadrinharMsg = encodeURIComponent(`Olá! Tenho interesse em apadrinhar o(a) ${animal.nome}. Como posso ajudar?`);
+  const adotarMsg = encodeURIComponent(`Olá! Tenho interesse em adotar o(a) ${animal.nome}. Gostaria de saber mais sobre o processo de adoção!`);
+
   return `
-        <div class="adoption-card" data-aos="zoom-in" data-aos-delay="300">
+        <div class="adoption-card" data-aos="zoom-in" data-aos-delay="${animal.delay || 300}">
             <img
                 src="${animal.imagemSrc}"
                 alt="${animal.imagemAlt}"
@@ -394,18 +415,18 @@ function criarCardAnimal(animal) {
                     style="align-items: center; justify-content: space-between"
                 >
                     <h3>${animal.nome}</h3>
-                    <span class="tag" id="classe">${animal.classe}</span>
+                    <span class="tag" id="classe">${classeFormatada}</span>
                 </div>
                 <p class="pet-info" id="tipo">${animal.tipo} • ${animal.idade}</p>
                 <p class="text description-text">
                     ${animal.descricao}
                 </p>
                 <div class="container-row button-group">
-                    <button class="btn btn-secondary">
+                    <a href="https://wa.me/5514998277874?text=${apadrinharMsg}" target="_blank" class="btn btn-secondary">
                         <span class="material-symbols-outlined">favorite</span>
                         Apadrinhar
-                    </button>
-                    <button class="btn btn-primary">Adotar</button>
+                    </a>
+                    <a href="https://wa.me/5514998277874?text=${adotarMsg}" target="_blank" class="btn btn-primary">Adotar</a>
                 </div>
             </div>
         </div>
